@@ -15,3 +15,15 @@ pass_params() {
 }
 
 #$(basername $0) "word" "words with spaces"
+
+#$(basername $0) -u jsmith -p notebooks -d 10-20-2011 -f pdf
+while getopts u:d:p:f: option
+do
+	case "${option}"
+		in
+		u) USER=${OPTARG};;
+		d) DATE=${OPTARG};;
+		p) PRODUCT=${OPTARG};;
+		f) FORMAT=$OPTARG;;
+	esac
+done
